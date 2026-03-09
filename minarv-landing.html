@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MinArv.no – Arveoppgjør på 48 timer med AI-hjelp</title>
+<meta name="description" content="Få struktur, dokumenter og veiledning i arveoppgjøret raskt – helt digitalt. Fra 990 kr. Ingen binding.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243258;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f9f6f0;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --gray-light: #f3f4f6;
+    --text: #1a1a2e;
+    --border: #e2e0db;
+    --green: #2d6a4f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .nav-cta {
+    background: var(--navy);
+    color: white;
+    padding: 9px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--navy-light); }
+  .nav-price {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-right: 16px;
+  }
+  .nav-right { display: flex; align-items: center; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--cream);
+    display: flex; align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: linear-gradient(135deg, var(--navy) 0%, #2a3d6e 100%);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 520px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #444;
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+  .hero-sub strong { color: var(--navy); font-weight: 600; }
+  .hero-proof {
+    font-size: 0.88rem;
+    color: var(--gray);
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+  .hero-cta-group { display: flex; flex-direction: column; gap: 12px; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--navy);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.2s;
+    border: none; cursor: pointer;
+    width: fit-content;
+  }
+  .btn-primary:hover {
+    background: var(--gold);
+    color: var(--navy);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+  }
+  .hero-trust {
+    display: flex; gap: 20px; flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+  .hero-trust span { display: flex; align-items: center; gap: 5px; }
+
+  /* Hero visual */
+  .hero-visual {
+    position: absolute; right: 5%; top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: min(420px, 42%);
+  }
+  .hero-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  }
+  .hero-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .step-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 26px; height: 26px;
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-text { font-size: 0.85rem; color: #333; }
+  .step-time { font-size: 0.75rem; color: var(--gold); font-weight: 600; margin-top: 1px; }
+  .hero-card-price {
+    margin-top: 16px;
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: var(--gray);
+  }
+  .hero-card-price strong { color: var(--navy); font-size: 1.1rem; }
+
+  /* ── SOCIAL PROOF STRIP ── */
+  .strip {
+    background: var(--navy);
+    padding: 18px 5%;
+    display: flex; align-items: center; justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .strip-item {
+    display: flex; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.85rem;
+  }
+  .strip-item .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 5%; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--gray);
+    max-width: 560px;
+    margin-bottom: 48px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how { background: white; }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 2px;
+    background: var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .step-card {
+    background: white;
+    padding: 32px 28px;
+  }
+  .step-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--cream);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 16px;
+    -webkit-text-stroke: 2px var(--navy);
+  }
+  .step-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .step-card p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
+  .step-card ul { list-style: none; margin-top: 12px; }
+  .step-card ul li {
+    font-size: 0.82rem;
+    color: #555;
+    padding: 3px 0;
+    display: flex; align-items: flex-start; gap: 6px;
+  }
+  .step-card ul li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+  /* ── WHAT YOU GET ── */
+  .deliverables { background: var(--cream); }
+  .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .deliver-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+  }
+  .deliver-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+  .deliver-icon { font-size: 1.5rem; margin-bottom: 12px; }
+  .deliver-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .deliver-card p { font-size: 0.82rem; color: var(--gray); }
+
+  /* ── PRICING ── */
+  .pricing { background: white; }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .price-card {
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    position: relative;
+  }
+  .price-card.popular {
+    border-color: var(--navy);
+    transform: scale(1.02);
+    box-shadow: 0 16px 48px rgba(26,39,68,0.12);
+  }
+  .popular-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--navy);
+    color: white;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .price-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .price-desc { font-size: 0.8rem; color: var(--gray); margin-bottom: 20px; }
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .price-amount span { font-size: 1rem; color: var(--gray); }
+  .price-note { font-size: 0.75rem; color: var(--green); margin-bottom: 24px; font-weight: 500; }
+  .price-features { list-style: none; margin-bottom: 28px; }
+  .price-features li {
+    font-size: 0.85rem;
+    color: #444;
+    padding: 6px 0;
+    display: flex; align-items: flex-start; gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .price-features li:last-child { border-bottom: none; }
+  .check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .btn-outline {
+    display: block; width: 100%;
+    border: 2px solid var(--navy);
+    color: var(--navy);
+    padding: 13px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    cursor: pointer; background: white;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-outline:hover, .price-card.popular .btn-outline {
+    background: var(--navy);
+    color: white;
+  }
+  .savings-note {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--gray);
+    margin-top: 32px;
+    padding: 16px;
+    background: var(--cream);
+    border-radius: 8px;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .savings-note strong { color: var(--green); }
+
+  /* ── LAWYER SECTION ── */
+  .lawyer { background: var(--cream); }
+  .lawyer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 900px;
+  }
+  .lawyer-box {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    border: 1px solid var(--border);
+  }
+  .lawyer-box h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .lawyer-box ul { list-style: none; }
+  .lawyer-box ul li {
+    font-size: 0.85rem;
+    color: #444;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 8px;
+  }
+  .lawyer-box ul li:last-child { border-bottom: none; }
+
+  /* ── FOUNDER ── */
+  .founder { background: white; }
+  .founder-inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 800px;
+  }
+  .founder-photo {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--cream);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    background: var(--gray-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+    flex-shrink: 0;
+  }
+  .founder-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .founder-title { font-size: 0.85rem; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+  .founder-bio { font-size: 0.9rem; color: #555; line-height: 1.7; margin-bottom: 16px; }
+  .founder-tech {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  /* ── SECURITY ── */
+  .security { background: var(--navy); }
+  .security .section-title { color: white; }
+  .security .section-sub { color: rgba(255,255,255,0.65); }
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .sec-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 24px 20px;
+  }
+  .sec-card .icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .sec-card h3 { font-size: 0.9rem; font-weight: 600; color: white; margin-bottom: 6px; }
+  .sec-card p { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+
+  /* ── FAQ ── */
+  .faq { background: var(--cream); }
+  .faq-list { max-width: 700px; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-q {
+    width: 100%;
+    background: none; border: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-align: left;
+    gap: 12px;
+  }
+  .faq-q .arrow { flex-shrink: 0; transition: transform 0.2s; color: var(--gold); font-size: 1.1rem; }
+  .faq-q.open .arrow { transform: rotate(45deg); }
+  .faq-a {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.7;
+    display: none;
+    padding-bottom: 18px;
+  }
+  .faq-a.open { display: block; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--navy);
+    padding: 80px 5%;
+    text-align: center;
+  }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: white;
+    margin-bottom: 16px;
+  }
+  .final-cta h2 em { font-style: normal; color: var(--gold); }
+  .final-cta p { color: rgba(255,255,255,0.7); margin-bottom: 36px; font-size: 1rem; }
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 16px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.2s;
+    border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-gold:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(201,168,76,0.4);
+  }
+  .cta-trust { margin-top: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111827;
+    color: rgba(255,255,255,0.5);
+    padding: 40px 5%;
+    font-size: 0.8rem;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+    align-items: flex-start;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .footer-brand .logo-text { color: white; font-size: 1.1rem; }
+  .footer-brand p { margin-top: 8px; font-size: 0.78rem; color: rgba(255,255,255,0.4); max-width: 280px; line-height: 1.6; }
+  .footer-links { display: flex; flex-direction: column; gap: 6px; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-links a:hover { color: white; }
+  .footer-contact a { color: rgba(255,255,255,0.5); text-decoration: none; display: block; margin-bottom: 4px; }
+  .footer-contact a:hover { color: white; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 32px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    max-width: 1100px; margin-left: auto; margin-right: auto;
+  }
+  .disclaimer {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero::before { width: 100%; clip-path: none; opacity: 0.05; }
+    .hero { flex-direction: column; padding: 90px 5% 40px; }
+    .hero-visual { position: static; transform: none; width: 100%; margin-top: 32px; }
+    .hero-visual .hero-card { width: 100%; }
+    .lawyer-grid { grid-template-columns: 1fr; }
+    .founder-inner { grid-template-columns: 1fr; }
+    .founder-photo { width: 80px; height: 80px; }
+    nav .nav-price { display: none; }
+    .strip { gap: 24px; }
+    .price-card.popular { transform: none; }
+    .hero::before { display: none; }
+    .hero { background: linear-gradient(160deg, #f9f6f0 60%, #e8e4f0 100%); }
+  }
+
+  @media (max-width: 480px) {
+    section { padding: 60px 5%; }
+    .hero h1 { font-size: 1.75rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * {
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-content > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-content > *:nth-child(6) { animation-delay: 0.6s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-icon">🌿</div>
+    <span class="logo-text">MinArv.no</span>
+  </a>
+  <div class="nav-right">
+    <span class="nav-price">Fra 990 kr</span>
+    <a href="#start" class="nav-cta">Start gratis vurdering →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="topp">
+  <div class="hero-content">
+    <div class="hero-badge">⚡ Arveoppgjør på 48 timer</div>
+    <h1>Få orden på arven.<br>Uten <em>advokatsalær</em>.</h1>
+    <p class="hero-sub">Vi hjelper deg gjennom arveoppgjøret <strong>digitalt og raskt</strong> – med AI-analyse, ferdig utfylte skjemaer og tydelig veiledning.</p>
+    <p class="hero-sub">For nordmenn som vil ha oversikt, ikke forvirring.</p>
+    <p class="hero-proof">«Hvert år gjennomfører tusenvis av nordmenn arveoppgjør alene – forvirret og uten veiledning. MinArv ble til fordi ingen hadde laget et enkelt digitalt verktøy for dette.»</p>
+    <div class="hero-cta-group">
+      <a href="#start" class="btn-primary">Start gratis vurdering →</a>
+      <div class="hero-trust">
+        <span>✓ Ingen binding</span>
+        <span>✓ Gratis å prøve</span>
+        <span>✓ Svar på 5 minutter</span>
+        <span>✓ Fra 990 kr</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-title">📋 Slik fungerer det</div>
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-text">Du fyller inn situasjonen</div>
+          <div class="step-time">~5 minutter</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-text">AI analyserer + vi kvalitetssikrer</div>
+          <div class="step-time">Innen 48 timer</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-text">Du får komplett rapport på e-post</div>
+          <div class="step-time">Klar til bruk</div>
+        </div>
+      </div>
+      <div class="hero-card-price">
+        Pris: <strong>990 kr</strong> – <strong>1 990 kr</strong> – <strong>3 990 kr</strong><br>
+        <span style="color:#aaa;font-size:0.78rem">Tilsvarende advokat: 50 000–200 000 kr</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item">
+    <div class="num">48t</div><div>Leveringstid</div>
+  </div>
+  <div class="strip-item">
+    <div class="num">85%</div><div>Billigere enn advokat</div>
+  </div>
+  <div class="strip-item">
+    <div class="num">990</div><div>kr fra</div>
+  </div>
+  <div class="strip-item">
+    <div class="num">100%</div><div>Digitalt – ingen møter</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="hvordan">
+  <div class="section-label">Prosessen</div>
+  <div class="section-title">Oversikt på 48 timer – steg for steg</div>
+  <p class="section-sub">Du svarer på noen enkle spørsmål, og vi gjør jobben. Ingen jus-bakgrunn nødvendig.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-card-num">01</div>
+      <h3>Du forteller oss om situasjonen</h3>
+      <p>Tar ca. 5 minutter.</p>
+      <ul>
+        <li>Hvem er død og når?</li>
+        <li>Hvem er arvingene?</li>
+        <li>Finnes det testament?</li>
+        <li>Last opp dokumenter (ikke påkrevd)</li>
+      </ul>
+    </div>
+    <div class="step-card">
+      <div class="step-card-num">02</div>
+      <h3>AI analyserer – vi kvalitetssikrer</h3>
+      <p>Vi sjekker offentlige registre og gjennomgår dokumentene.</p>
+      <ul>
+        <li>Brønnøysund, Kartverket, Skatteetaten</li>
+        <li>Leser testament og bankutskrifter</li>
+        <li>Identifiserer eiendeler og gjeld</li>
+        <li>Dobbeltsjekkes manuelt</li>
+      </ul>
+    </div>
+    <div class="step-card">
+      <div class="step-card-num">03</div>
+      <h3>Du får komplett rapport</h3>
+      <p>Innen 48 timer på e-post.</p>
+      <ul>
+        <li>Oversikt over alle eiendeler og gjeld</li>
+        <li>Arvefordeling etter arveloven/testament</li>
+        <li>Ferdig skjemautkast til Skatteetaten</li>
+        <li>Trinn-for-trinn sjekkliste</li>
+      </ul>
+    </div>
+    <div class="step-card">
+      <div class="step-card-num">04</div>
+      <h3>Vi hjelper deg helt i mål</h3>
+      <p>Du er ikke alene.</p>
+      <ul>
+        <li>Chat eller ring oss innen 48 timer</li>
+        <li>Trenger du advokat? Vi kobler deg med partnere</li>
+        <li>Hjelp med innsending hvis du står fast</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliverables" id="hva-du-faar">
+  <div class="section-label">Det du mottar</div>
+  <div class="section-title">Alt du trenger for arveoppgjøret</div>
+  <p class="section-sub">Rapporten er laget for deg – ikke for jurister. Klar, tydelig og handlingsorientert.</p>
+  <div class="deliver-grid">
+    <div class="deliver-card">
+      <div class="deliver-icon">📊</div>
+      <h3>Komplett eiendels- og gjelds­oversikt</h3>
+      <p>Alle verdier og forpliktelser samlet på ett sted, hentet fra offentlige registre.</p>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">⚖️</div>
+      <h3>Arvefordeling etter norsk arvelov</h3>
+      <p>Tydelig oversikt over hvem arver hva, beregnet automatisk.</p>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">📝</div>
+      <h3>Ferdig utfylt skjemautkast</h3>
+      <p>Klar til innsending til Skatteetaten – du trenger bare gjennomgå og signere.</p>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">✅</div>
+      <h3>Trinn-for-trinn sjekkliste</h3>
+      <p>Du vet alltid hva neste steg er. Med frister og varsler.</p>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">⏰</div>
+      <h3>Oversikt over alle frister</h3>
+      <p>Slik unngår du bøter og forsinkelser i oppgjøret.</p>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">🚨</div>
+      <h3>Anbefaling om advokat ved behov</h3>
+      <p>Tydelig varsel hvis saken krever juridisk hjelp – og vi kobler deg med rett person.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="priser">
+  <div style="text-align:center">
+    <div class="section-label">Transparente priser</div>
+    <div class="section-title">Ingen skjulte kostnader</div>
+    <p class="section-sub" style="margin:0 auto 48px">Du vet hva du betaler før du starter. Velg pakken som passer situasjonen din.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-name">Enkel</div>
+      <div class="price-desc">For enkle bo uten eiendom, der arvingene er enige</div>
+      <div class="price-amount">990 <span>kr</span></div>
+      <div class="price-note">✓ Én betaling, ingen abonnement</div>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Oversikt over eiendeler og gjeld</li>
+        <li><span class="check">✓</span> Arveoversikt basert på arveloven</li>
+        <li><span class="check">✓</span> Skjemaoversikt for Skatteetaten</li>
+        <li><span class="check">✓</span> Trinn-for-trinn sjekkliste</li>
+        <li><span class="check">✓</span> E-poststøtte i 14 dager</li>
+      </ul>
+      <button class="btn-outline" onclick="document.getElementById('start').scrollIntoView({behavior:'smooth'})">Kom i gang →</button>
+    </div>
+    <div class="price-card popular">
+      <div class="popular-badge">Mest populær</div>
+      <div class="price-name">Komplett</div>
+      <div class="price-desc">For standard arveoppgjør med bolig eller større bankformue</div>
+      <div class="price-amount">1 990 <span>kr</span></div>
+      <div class="price-note">✓ Inkluderer gjennomgang av dine dokumenter</div>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Alt i Enkel-pakken</li>
+        <li><span class="check">✓</span> Gjennomgang av opplastede dokumenter</li>
+        <li><span class="check">✓</span> Ferdig utfylte skjemautkast</li>
+        <li><span class="check">✓</span> Skattemessig gjennomgang (kontinuitetsprinsippet)</li>
+        <li><span class="check">✓</span> E-poststøtte i 30 dager</li>
+      </ul>
+      <button class="btn-outline" onclick="document.getElementById('start').scrollIntoView({behavior:'smooth'})">Velg Komplett →</button>
+    </div>
+    <div class="price-card">
+      <div class="price-name">Kompleks</div>
+      <div class="price-desc">For arveoppgjør med flere eiendommer eller større formuer</div>
+      <div class="price-amount">3 990 <span>kr</span></div>
+      <div class="price-note">✓ Prioritert behandling innen 24 timer</div>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Alt i Komplett-pakken</li>
+        <li><span class="check">✓</span> Eiendomsdokumentasjon</li>
+        <li><span class="check">✓</span> Prioritert behandling (24 timer)</li>
+        <li><span class="check">✓</span> Telefonisk støtte</li>
+        <li><span class="check">✓</span> Utkast til skifteavtale</li>
+      </ul>
+      <button class="btn-outline" onclick="document.getElementById('start').scrollIntoView({behavior:'smooth'})">Kom i gang →</button>
+    </div>
+  </div>
+  <div class="savings-note">
+    💰 <strong>Du sparer 85–95 %</strong> sammenlignet med advokat (50 000–200 000 kr). MinArv: 990–3 990 kr.<br>
+    <em>Usikker på hvilken pakke? Fyll ut gratis – vi anbefaler riktig pakke før du betaler.</em>
+  </div>
+</section>
+
+<!-- LAWYER -->
+<section class="lawyer">
+  <div class="section-label">Grenser for tjenesten</div>
+  <div class="section-title">Når bør advokat kontaktes?</div>
+  <p class="section-sub">Vi er tydelige på hva vi gjør og ikke gjør.</p>
+  <div class="lawyer-grid">
+    <div class="lawyer-box">
+      <h3>⚖️ Vi anbefaler advokat hvis:</h3>
+      <ul>
+        <li>→ Det er uenighet mellom arvingene</li>
+        <li>→ Testamentet er uklart eller kan bestrides</li>
+        <li>→ Det er eiendeler i flere land</li>
+        <li>→ Boet har betydelig gjeld</li>
+        <li>→ Saken er juridisk kompleks</li>
+      </ul>
+    </div>
+    <div class="lawyer-box">
+      <h3>✅ MinArv.no er:</h3>
+      <ul>
+        <li>✓ Basert på norsk arvelov og offentlig tilgjengelig informasjon</li>
+        <li>✓ Utviklet for å gi struktur og oversikt i arveoppgjør</li>
+        <li>✓ <strong>Ikke</strong> et advokatfirma og yter ikke juridisk rådgivning</li>
+        <li>✓ Trygg og konfidensiell behandling av dine opplysninger</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.78rem;color:var(--gray);margin-top:20px;">
+    💡 Visste du at du kan ha rett til <strong>fri rettshjelp</strong> hvis du har lav inntekt? Sjekk <a href="https://www.domstol.no" target="_blank" style="color:var(--navy)">domstol.no</a> for mer informasjon.
+  </p>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder">
+  <div class="section-label">Hvem står bak</div>
+  <div class="founder-inner">
+    <div class="founder-photo">👤</div>
+    <div>
+      <div class="founder-name">Hannes Lund</div>
+      <div class="founder-title">Gründer & CEO – Student ved NHH</div>
+      <p class="founder-bio">Jeg bygde MinArv.no fordi jeg innså at dette kunne gagne flere nivåer i samfunnet. Hvert år sliter tusenvis av nordmenn med arveoppgjør alene – forvirret og uten veiledning. Det er unødvendig.</p>
+      <div class="founder-tech">🤖 Bygget på Claude AI fra Anthropic – teknologi brukt av ledende selskaper verden over</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="security">
+  <div class="section-label" style="color:var(--gold)">Sikkerhet og personvern</div>
+  <div class="section-title">Dine data er trygge hos oss</div>
+  <p class="section-sub">Vi behandler sensitiv informasjon med respekt og banknivå-sikkerhet.</p>
+  <div class="security-grid">
+    <div class="sec-card">
+      <div class="icon">🔒</div>
+      <h3>Banknivå-kryptering</h3>
+      <p>All informasjon krypteres under overføring og lagring.</p>
+    </div>
+    <div class="sec-card">
+      <div class="icon">🚫</div>
+      <h3>Ingen datadeling</h3>
+      <p>Vi deler aldri data med tredjeparter uten ditt samtykke.</p>
+    </div>
+    <div class="sec-card">
+      <div class="icon">🗑️</div>
+      <h3>Slett når du vil</h3>
+      <p>Du kan slette alle dine data når som helst.</p>
+    </div>
+    <div class="sec-card">
+      <div class="icon">📋</div>
+      <h3>GDPR-samsvarlig</h3>
+      <p>Vi lagrer kun nødvendige opplysninger for å hjelpe deg.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-label">Spørsmål og svar</div>
+  <div class="section-title">Ofte stilte spørsmål</div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Hva kan MinArv.no gjøre for meg?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">MinArv.no hjelper deg med å få oversikt over arveoppgjøret – eiendeler, gjeld, arvefordeling og nødvendige skjemaer. Vi søker i offentlige registre, analyserer dokumenter og gir deg en komplett rapport med tydelig veiledning. Vi er ikke advokater og yter ikke juridisk rådgivning.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Hva skjer etter jeg bestiller?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Du mottar en bekreftelse på e-post umiddelbart. Vi gjennomgår saken din innen 48 timer (24 timer for Kompleks-pakken) og sender deg din personlige rapport. Vi er tilgjengelige på e-post hvis du har spørsmål underveis.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Er det trygt å dele personopplysninger?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Ja. All informasjon krypteres med banknivå-sikkerhet. Vi deler aldri data med tredjeparter uten ditt samtykke, og du kan slette alt når som helst. Vi er GDPR-samsvarlige og lagrer kun det som er nødvendig for å hjelpe deg.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Hvor lang tid tar det?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Du bruker ca. 5 minutter på å fylle ut skjemaet. Vi leverer rapporten innen 48 timer (24 timer for Kompleks-pakken). Du trenger ikke møte noen eller ringe noen.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Hva koster det, og er det noen skjulte avgifter?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Ingen skjulte kostnader. Enkel: 990 kr. Komplett: 1 990 kr. Kompleks: 3 990 kr. Én betaling, ingen abonnement. Det er gratis å fylle ut skjemaet og få en anbefaling om riktig pakke.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Hva om jeg trenger advokat?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Rapporten vil tydelig varsle deg hvis saken din krever juridisk hjelp. Vi kan koble deg med våre advokatpartnere. Husk at du kan ha rett til fri rettshjelp hvis du har lav inntekt – sjekk domstol.no.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="start">
+  <h2>Klar for å få <em>oversikt</em>?</h2>
+  <p>Fyll ut gratis på 5 minutter. Vi anbefaler riktig pakke – du betaler ingenting før du er klar.</p>
+  <a href="#" class="btn-gold">Start gratis vurdering →</a>
+  <div class="cta-trust">Ingen binding &nbsp;•&nbsp; Svar på 5 minutter &nbsp;•&nbsp; Koster ingenting å prøve</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon" style="width:28px;height:28px;font-size:14px;">🌿</div>
+        <span class="logo-text">MinArv.no</span>
+      </div>
+      <p>Arveoppgjør på 48 timer med AI-hjelp. Trygt, enkelt og billig.</p>
+    </div>
+    <div class="footer-links">
+      <strong style="color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:4px;">Lenker</strong>
+      <a href="#hvordan">Hvordan det fungerer</a>
+      <a href="#priser">Priser</a>
+      <a href="#start">Start gratis</a>
+      <a href="#">Personvernerklæring</a>
+      <a href="#">Vilkår for bruk</a>
+    </div>
+    <div class="footer-contact">
+      <strong style="color:rgba(255,255,255,0.7);font-size:0.82rem;display:block;margin-bottom:8px;">Kontakt</strong>
+      <a href="mailto:hannes.lund2006@outlook.com">hannes.lund2006@outlook.com</a>
+      <a href="tel:+4792874782">+47 928 74 782</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 MinArv.no &nbsp;|&nbsp; Org.nr: [Fylles inn når registrert]</div>
+    <div class="disclaimer">MinArv.no er ikke et advokatfirma og yter ikke juridisk rådgivning. Vi tilbyr veiledning og verktøy for organisering av arveoppgjør basert på offentlig tilgjengelig informasjon. For juridisk rådgivning, kontakt advokat.</div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('open'));
+  // Toggle clicked
+  if (!isOpen) {
+    answer.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+</script>
+</body>
+</html>
