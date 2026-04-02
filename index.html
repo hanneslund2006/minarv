@@ -1053,7 +1053,7 @@
     <div class="footer-contact">
       <strong style="color:rgba(255,255,255,0.7);font-size:0.82rem;display:block;margin-bottom:8px;">Kontakt</strong>
       <span style="color:rgba(255,255,255,0.5)">minarv.kontakt [at] gmail.com</span>
-      <span style="color:rgba(255,255,255,0.5);font-size:0.85rem;">Vi svarer på e-post innen 24 timer</span>
+      <span style="color:rgba(255,255,255,0.4);font-size:0.82rem;margin-top:4px;display:block;">Vi svarer på e-post innen 24 timer</span>
     </div>
   </div>
   <div class="footer-bottom">
@@ -1061,5 +1061,20 @@
     <div class="disclaimer">MinArv.no er ikke et advokatfirma og yter ikke juridisk rådgivning. Vi tilbyr veiledning og verktøy for organisering av arveoppgjør basert på offentlig tilgjengelig informasjon. For juridisk rådgivning, kontakt advokat.</div>
   </div>
 </footer>
+
+<script>
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(b => {
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    btn.classList.add('open');
+    answer.classList.add('open');
+  }
+}
+</script>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasyn
