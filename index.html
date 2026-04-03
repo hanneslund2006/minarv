@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MinArv.no – Arveoppgjør på 48 timer med AI-hjelp</title>
-<meta name="description" content="Få struktur, dokumenter og veiledning i arveoppgjøret raskt – helt digitalt. Fra 790 kr. Ingen binding.">
+<title>MinArv.no – Arveoppgjør på 48 timer</title>
+<meta name="description" content="Få arvefordeling, skjemaer og sjekkliste levert på e-post innen 48 timer. Fra 790 kr. Ingen binding.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -24,9 +24,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'DM Sans', sans-serif;
     color: var(--text);
@@ -48,13 +46,6 @@
   .logo {
     display: flex; align-items: center; gap: 10px;
     text-decoration: none;
-  }
-  .logo-icon {
-    width: 36px; height: 36px;
-    background: var(--navy);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
   }
   .logo-text {
     font-family: 'Playfair Display', serif;
@@ -389,10 +380,7 @@
     cursor: pointer; background: white;
     font-family: 'DM Sans', sans-serif;
   }
-  .btn-outline:hover {
-    background: var(--navy);
-    color: white;
-  }
+  .btn-outline:hover { background: var(--navy); color: white; }
   .savings-note {
     text-align: center;
     font-size: 0.82rem;
@@ -453,9 +441,6 @@
     object-fit: cover;
     border: 4px solid var(--cream);
     box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    background: var(--gray-light);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 3rem;
     flex-shrink: 0;
   }
   .founder-name {
@@ -500,9 +485,7 @@
   /* ── FAQ ── */
   .faq { background: var(--cream); }
   .faq-list { max-width: 700px; }
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-  }
+  .faq-item { border-bottom: 1px solid var(--border); }
   .faq-q {
     width: 100%;
     background: none; border: none; cursor: pointer;
@@ -598,8 +581,8 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .hero::before { width: 100%; clip-path: none; opacity: 0.05; }
-    .hero { flex-direction: column; padding: 90px 5% 40px; }
+    .hero::before { display: none; }
+    .hero { flex-direction: column; padding: 90px 5% 40px; background: linear-gradient(160deg, #f9f6f0 60%, #e8e4f0 100%); }
     .hero-visual { position: static; transform: none; width: 100%; margin-top: 32px; }
     .hero-visual .hero-card { width: 100%; }
     .lawyer-grid { grid-template-columns: 1fr; }
@@ -609,10 +592,7 @@
     nav .nav-cta { font-size: 0.78rem; padding: 7px 14px; }
     .strip { gap: 24px; }
     .price-card.popular { transform: none; }
-    .hero::before { display: none; }
-    .hero { background: linear-gradient(160deg, #f9f6f0 60%, #e8e4f0 100%); }
   }
-
   @media (max-width: 480px) {
     section { padding: 60px 5%; }
     .hero h1 { font-size: 1.75rem; }
@@ -627,9 +607,7 @@
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .hero-content > * {
-    animation: fadeUp 0.6s ease both;
-  }
+  .hero-content > * { animation: fadeUp 0.6s ease both; }
   .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
   .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
   .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
@@ -637,7 +615,8 @@
   .hero-content > *:nth-child(5) { animation-delay: 0.5s; }
   .hero-content > *:nth-child(6) { animation-delay: 0.6s; }
 </style>
-<!-- Google tag (gtag.js) -->
+
+<!-- Google tag -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KS3E9C2WJ1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -663,25 +642,24 @@
   </a>
   <div class="nav-right">
     <span class="nav-price">Fra 790 kr</span>
-    <a href="https://form.typeform.com/to/mclSh4F4" target="_blank" class="nav-cta">Start gratis vurdering →</a>
+    <a href="https://form.typeform.com/to/mclSh4F4" target="_blank" class="nav-cta">Se hva du får →</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="topp">
   <div class="hero-content">
-    <div class="hero-badge">⚡ Arveoppgjør på 48 timer</div>
+    <div class="hero-badge">⚡ Rapport levert innen 48 timer</div>
     <h1>Arveoppgjør<br>gjort <em>enkelt</em>.</h1>
-    <p class="hero-sub">Vi hjelper deg gjennom arveoppgjøret <strong>digitalt og raskt</strong> – med AI-analyse, ferdig utfylte skjemaer og tydelig veiledning.</p>
-    <p class="hero-sub">For nordmenn som vil ha oversikt, ikke forvirring.</p>
-    <p class="hero-proof">«Hvert år gjennomfører tusenvis av nordmenn arveoppgjør alene – forvirret og uten veiledning. MinArv ble til fordi ingen hadde laget et enkelt digitalt verktøy for dette.»</p>
+    <p class="hero-sub">Du fyller ut ett skjema på 5 minutter. Vi leverer <strong>arvefordeling, skjemaer til Skatteetaten og en komplett sjekkliste</strong> – rett i innboksen din.</p>
+    <p class="hero-proof">Ingen advokat. Ingen møter. Ingen forvirring.</p>
     <div class="hero-cta-group">
-      <a href="https://form.typeform.com/to/mclSh4F4" target="_blank" class="btn-primary">Start gratis vurdering →</a>
+      <a href="https://form.typeform.com/to/mclSh4F4" target="_blank" class="btn-primary">Start her – ta 5 minutter →</a>
       <div class="hero-trust">
         <span>✓ Ingen binding</span>
-        <span>✓ Gratis å prøve</span>
-        <span>✓ Svar på 5 minutter</span>
+        <span>✓ Du betaler kun hvis du vil gå videre</span>
         <span>✓ Fra 790 kr</span>
+        <span>✓ 100% fornøyd-garanti</span>
       </div>
     </div>
   </div>
@@ -691,14 +669,14 @@
       <div class="step-item">
         <div class="step-num">1</div>
         <div>
-          <div class="step-text">Du fyller inn situasjonen</div>
+          <div class="step-text">Du fyller inn situasjonen din</div>
           <div class="step-time">~5 minutter</div>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">2</div>
         <div>
-          <div class="step-text">AI analyserer + vi kvalitetssikrer</div>
+          <div class="step-text">Vi analyserer og kvalitetssikrer</div>
           <div class="step-time">Innen 48 timer</div>
         </div>
       </div>
@@ -710,7 +688,7 @@
         </div>
       </div>
       <div class="hero-card-price">
-        Lanseringspris: <strong>790 kr</strong> – <strong>1 390 kr</strong> – <strong>2 490 kr</strong><br>
+        Fra <strong>790 kr</strong> – <strong>1 390 kr</strong> – <strong>2 490 kr</strong><br>
         <span style="color:#aaa;font-size:0.78rem">Tilsvarende advokat: 50 000–200 000 kr</span>
       </div>
     </div>
@@ -752,13 +730,13 @@
     </div>
     <div class="step-card">
       <div class="step-card-num">02</div>
-      <h3>AI analyserer – vi kvalitetssikrer</h3>
-      <p>Vi sjekker offentlige registre og gjennomgår dokumentene.</p>
+      <h3>Vi analyserer og kvalitetssikrer</h3>
+      <p>Vi gjennomgår situasjonen din grundig.</p>
       <ul>
-        <li>Brønnøysund, Kartverket, Skatteetaten</li>
-        <li>Leser testament og bankutskrifter</li>
-        <li>Identifiserer eiendeler og gjeld</li>
-        <li>Dobbeltsjekkes manuelt</li>
+        <li>Arvefordeling etter norsk arvelov</li>
+        <li>Relevante skjemaer identifiseres</li>
+        <li>Frister kartlegges</li>
+        <li>Manuell kvalitetssikring</li>
       </ul>
     </div>
     <div class="step-card">
@@ -766,20 +744,20 @@
       <h3>Du får komplett rapport</h3>
       <p>Innen 48 timer på e-post.</p>
       <ul>
-        <li>Oversikt over alle eiendeler og gjeld</li>
-        <li>Arvefordeling etter arveloven/testament</li>
-        <li>Ferdig skjemautkast til Skatteetaten</li>
+        <li>Arvefordeling etter arveloven</li>
+        <li>Skjemaoversikt for Skatteetaten</li>
         <li>Trinn-for-trinn sjekkliste</li>
+        <li>Fristoversikt</li>
       </ul>
     </div>
     <div class="step-card">
       <div class="step-card-num">04</div>
-      <h3>Vi hjelper deg helt i mål</h3>
-      <p>Du er ikke alene.</p>
+      <h3>Du er ikke alene</h3>
+      <p>Vi er tilgjengelige på e-post.</p>
       <ul>
-        <li>Chat eller ring oss innen 48 timer</li>
-        <li>Trenger du advokat? Vi kobler deg med partnere</li>
-        <li>Hjelp med innsending hvis du står fast</li>
+        <li>Spørsmål? Vi svarer innen 24 timer</li>
+        <li>Trenger du advokat? Vi sier ifra tydelig</li>
+        <li>100% fornøyd-garanti – full refusjon</li>
       </ul>
     </div>
   </div>
@@ -792,24 +770,19 @@
   <p class="section-sub">Rapporten er laget for deg – ikke for jurister. Klar, tydelig og handlingsorientert.</p>
   <div class="deliver-grid">
     <div class="deliver-card">
-      <div class="deliver-icon">📊</div>
-      <h3>Komplett eiendels- og gjelds­oversikt</h3>
-      <p>Alle verdier og forpliktelser samlet på ett sted, hentet fra offentlige registre.</p>
-    </div>
-    <div class="deliver-card">
       <div class="deliver-icon">⚖️</div>
       <h3>Arvefordeling etter norsk arvelov</h3>
-      <p>Tydelig oversikt over hvem arver hva, beregnet automatisk.</p>
+      <p>Tydelig oversikt over hvem arver hva, beregnet etter gjeldende arvelov og eventuelle testamenter.</p>
     </div>
     <div class="deliver-card">
       <div class="deliver-icon">📝</div>
-      <h3>Ferdig utfylt skjemautkast</h3>
-      <p>Klar til innsending til Skatteetaten – du trenger bare gjennomgå og signere.</p>
+      <h3>Skjemaoversikt for Skatteetaten</h3>
+      <p>Hvilke skjemaer du må fylle ut, i hvilken rekkefølge og med hvilke frister.</p>
     </div>
     <div class="deliver-card">
       <div class="deliver-icon">✅</div>
       <h3>Trinn-for-trinn sjekkliste</h3>
-      <p>Du vet alltid hva neste steg er. Med frister og varsler.</p>
+      <p>Du vet alltid hva neste steg er. Strukturert og i logisk rekkefølge.</p>
     </div>
     <div class="deliver-card">
       <div class="deliver-icon">⏰</div>
@@ -817,9 +790,14 @@
       <p>Slik unngår du bøter og forsinkelser i oppgjøret.</p>
     </div>
     <div class="deliver-card">
+      <div class="deliver-icon">📊</div>
+      <h3>Oversikt over boet</h3>
+      <p>Eiendeler, gjeld og nettoformue samlet – tilpasset opplysningene du oppgir.</p>
+    </div>
+    <div class="deliver-card">
       <div class="deliver-icon">🚨</div>
-      <h3>Anbefaling om advokat ved behov</h3>
-      <p>Tydelig varsel hvis saken krever juridisk hjelp – og vi kobler deg med rett person.</p>
+      <h3>Tydelig anbefaling ved behov</h3>
+      <p>Hvis saken krever advokat, sier vi ifra direkte i rapporten – slik at du ikke bruker tid på noe vi ikke kan hjelpe med.</p>
     </div>
   </div>
   <div style="text-align:center;margin-top:40px;">
@@ -841,29 +819,29 @@
     <div class="price-card">
       <div class="price-name">Enkel</div>
       <div class="price-desc">For enkle bo uten eiendom, der arvingene er enige</div>
-      <div class="price-amount"><span style="font-size:0.6em;color:#c9a84c;display:block;margin-bottom:4px;">LANSERINGSPRIS</span>790 <span>kr</span></div>
+      <div class="price-amount">790 <span>kr</span></div>
       <div class="price-note">✓ Én betaling, ingen abonnement</div>
       <ul class="price-features">
-        <li><span class="check">✓</span> Oversikt over eiendeler og gjeld</li>
-        <li><span class="check">✓</span> Arveoversikt basert på arveloven</li>
+        <li><span class="check">✓</span> Arvefordeling etter norsk arvelov</li>
         <li><span class="check">✓</span> Skjemaoversikt for Skatteetaten</li>
         <li><span class="check">✓</span> Trinn-for-trinn sjekkliste</li>
+        <li><span class="check">✓</span> Fristoversikt</li>
         <li><span class="check">✓</span> E-poststøtte i 14 dager</li>
       </ul>
       <button class="btn-outline" onclick="window.open('https://form.typeform.com/to/mclSh4F4','_blank')">Kom i gang →</button>
       <p style="font-size:0.78rem;color:#6b7280;text-align:center;margin-top:10px;">🛡️ 100% fornøyd-garanti – full refusjon innen 48 timer</p>
     </div>
     <div class="price-card popular">
-      <div class="popular-badge">Mest populær</div>
+      <div class="popular-badge">Anbefalt for de fleste</div>
       <div class="price-name">Komplett</div>
-      <div class="price-desc">For standard arveoppgjør med bolig eller større bankformue</div>
-      <div class="price-amount"><span style="font-size:0.6em;color:#c9a84c;display:block;margin-bottom:4px;">LANSERINGSPRIS</span>1 390 <span>kr</span></div>
+      <div class="price-desc">For arveoppgjør med bolig eller større bankformue</div>
+      <div class="price-amount">1 390 <span>kr</span></div>
       <div class="price-note">✓ Inkluderer gjennomgang av dine dokumenter</div>
       <ul class="price-features">
         <li><span class="check">✓</span> Alt i Enkel-pakken</li>
         <li><span class="check">✓</span> Gjennomgang av opplastede dokumenter</li>
-        <li><span class="check">✓</span> Ferdig utfylte skjemautkast</li>
-        <li><span class="check">✓</span> Skattemessig gjennomgang (kontinuitetsprinsippet)</li>
+        <li><span class="check">✓</span> Skattemessig gjennomgang</li>
+        <li><span class="check">✓</span> Utkast til skjemaer</li>
         <li><span class="check">✓</span> E-poststøtte i 30 dager</li>
       </ul>
       <button class="btn-outline" onclick="window.open('https://form.typeform.com/to/mclSh4F4','_blank')">Velg Komplett →</button>
@@ -872,22 +850,22 @@
     <div class="price-card">
       <div class="price-name">Kompleks</div>
       <div class="price-desc">For arveoppgjør med flere eiendommer eller større formuer</div>
-      <div class="price-amount"><span style="font-size:0.6em;color:#c9a84c;display:block;margin-bottom:4px;">LANSERINGSPRIS</span>2 490 <span>kr</span></div>
+      <div class="price-amount">2 490 <span>kr</span></div>
       <div class="price-note">✓ Prioritert behandling innen 24 timer</div>
       <ul class="price-features">
         <li><span class="check">✓</span> Alt i Komplett-pakken</li>
         <li><span class="check">✓</span> Eiendomsdokumentasjon</li>
         <li><span class="check">✓</span> Prioritert behandling (24 timer)</li>
-        <li><span class="check">✓</span> Telefonisk støtte</li>
         <li><span class="check">✓</span> Utkast til skifteavtale</li>
+        <li><span class="check">✓</span> Telefonisk støtte</li>
       </ul>
       <button class="btn-outline" onclick="window.open('https://form.typeform.com/to/mclSh4F4','_blank')">Kom i gang →</button>
       <p style="font-size:0.78rem;color:#6b7280;text-align:center;margin-top:10px;">🛡️ 100% fornøyd-garanti – full refusjon innen 48 timer</p>
     </div>
   </div>
   <div class="savings-note">
-    💰 <strong>Du sparer 85–95 %</strong> sammenlignet med advokat (50 000–200 000 kr). MinArv: 790–2 490 kr (lanseringspris).<br>
-    <em>Usikker på hvilken pakke? Fyll ut gratis – vi anbefaler riktig pakke før du betaler.</em>
+    💰 <strong>Du sparer 85–95 %</strong> sammenlignet med advokat (50 000–200 000 kr). MinArv: 790–2 490 kr.<br>
+    <em>Usikker på hvilken pakke? Fyll ut skjemaet – vi anbefaler riktig pakke før du betaler.</em>
   </div>
 </section>
 
@@ -929,10 +907,10 @@
     <img src="hannes.jpg" alt="Hannes Lund" class="founder-photo">
     <div>
       <div class="founder-name">Hannes Lund</div>
-      <div class="founder-title">Gründer & CEO – Student ved NHH</div>
-      <p class="founder-bio">Jeg bygde MinArv.no fordi jeg innså at dette kunne gagne flere nivåer i samfunnet. Hvert år sliter tusenvis av nordmenn med arveoppgjør alene – forvirret og uten veiledning. Det er unødvendig.</p>
-      <div class="founder-tech">🤖 Bygget på Claude AI fra Anthropic – teknologi brukt av ledende selskaper verden over</div>
-      <a href="https://www.linkedin.com/in/hannes-lund-653090353/" target="_blank" style="display:inline-block;margin-top:14px;font-size:0.85rem;color:var(--navy);font-weight:600;text-decoration:none;border:1px solid var(--border);padding:8px 18px;border-radius:6px;">🔗 Se LinkedIn-profil</a>
+      <div class="founder-title">Gründer – Student ved NHH</div>
+      <p class="founder-bio">Jeg bygde MinArv fordi jeg så at tusenvis av nordmenn hvert år sitter alene med arveoppgjøret – forvirret, usikre og uten noen å spørre. Systemet er ikke vanskelig, men det er uoversiktlig. Det ville jeg gjøre noe med. Jeg er 19 år, starter på NHH til høsten, og har brukt det siste halvåret på å bygge en tjeneste som faktisk hjelper folk gjennom dette – raskt, trygt og til en pris som ikke krever at du selger et arvet hus for å ha råd til hjelp.</p>
+      <div class="founder-tech">🤖 Bygget på Claude AI fra Anthropic</div>
+      <a href="https://www.linkedin.com/in/hannes-lund-653090353/" target="_blank" style="display:inline-block;margin-top:14px;font-size:0.85rem;color:var(--navy);font-weight:600;text-decoration:none;border:1px solid var(--border);padding:8px 18px;border-radius:6px;">🔗 LinkedIn</a>
     </div>
   </div>
 </section>
@@ -941,11 +919,11 @@
 <section class="security">
   <div class="section-label" style="color:var(--gold)">Sikkerhet og personvern</div>
   <div class="section-title">Dine data er trygge hos oss</div>
-  <p class="section-sub">Vi behandler sensitiv informasjon med respekt og banknivå-sikkerhet.</p>
+  <p class="section-sub">Vi behandler sensitiv informasjon med respekt og forsiktighet.</p>
   <div class="security-grid">
     <div class="sec-card">
       <div class="icon">🔒</div>
-      <h3>Banknivå-kryptering</h3>
+      <h3>Kryptert overføring</h3>
       <p>All informasjon krypteres under overføring og lagring.</p>
     </div>
     <div class="sec-card">
@@ -976,42 +954,42 @@
         Hva kan MinArv.no gjøre for meg?
         <span class="arrow">+</span>
       </button>
-      <div class="faq-a">MinArv.no hjelper deg med å få oversikt over arveoppgjøret – eiendeler, gjeld, arvefordeling og nødvendige skjemaer. Vi søker i offentlige registre, analyserer dokumenter og gir deg en komplett rapport med tydelig veiledning. Vi er ikke advokater og yter ikke juridisk rådgivning.</div>
+      <div class="faq-a">MinArv.no hjelper deg med å få oversikt over arveoppgjøret – arvefordeling, skjemaer til Skatteetaten, frister og en trinn-for-trinn sjekkliste. Du fyller ut ett skjema, vi leverer en komplett rapport. Vi er ikke advokater og yter ikke juridisk rådgivning.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
         Hva skjer etter jeg bestiller?
         <span class="arrow">+</span>
       </button>
-      <div class="faq-a">Du mottar en bekreftelse på e-post umiddelbart. Vi gjennomgår saken din innen 48 timer (24 timer for Kompleks-pakken) og sender deg din personlige rapport. Vi er tilgjengelige på e-post hvis du har spørsmål underveis.</div>
+      <div class="faq-a">Du mottar en bekreftelse på e-post umiddelbart. Vi leverer rapporten din innen 48 timer (24 timer for Kompleks-pakken). Vi er tilgjengelige på e-post hvis du har spørsmål underveis.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
         Er det trygt å dele personopplysninger?
         <span class="arrow">+</span>
       </button>
-      <div class="faq-a">Ja. All informasjon krypteres med banknivå-sikkerhet. Vi deler aldri data med tredjeparter uten ditt samtykke, og du kan slette alt når som helst. Vi er GDPR-samsvarlige og lagrer kun det som er nødvendig for å hjelpe deg.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Hvor lang tid tar det?
-        <span class="arrow">+</span>
-      </button>
-      <div class="faq-a">Du bruker ca. 5 minutter på å fylle ut skjemaet. Vi leverer rapporten innen 48 timer (24 timer for Kompleks-pakken). Du trenger ikke møte noen eller ringe noen.</div>
+      <div class="faq-a">Ja. All informasjon krypteres under overføring og lagring. Vi deler aldri data med tredjeparter uten ditt samtykke, og du kan slette alt når som helst. Vi er GDPR-samsvarlige og lagrer kun det som er nødvendig for å hjelpe deg.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
         Hva koster det, og er det noen skjulte avgifter?
         <span class="arrow">+</span>
       </button>
-      <div class="faq-a">Ingen skjulte kostnader. Enkel: 790 kr. Komplett: 1 390 kr. Kompleks: 2 490 kr. Én betaling, ingen abonnement. Dette er lanseringspriser – det er gratis å fylle ut skjemaet og få en anbefaling om riktig pakke.</div>
+      <div class="faq-a">Ingen skjulte kostnader. Enkel: 790 kr. Komplett: 1 390 kr. Kompleks: 2 490 kr. Én betaling, ingen abonnement. Du betaler ingenting for å fylle ut skjemaet og se hvilken pakke som passer deg.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Hva om jeg ikke er fornøyd?
+        <span class="arrow">+</span>
+      </button>
+      <div class="faq-a">Vi har 100% fornøyd-garanti. Hvis du ikke er fornøyd med rapporten, får du full refusjon innen 48 timer – ingen spørsmål.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
         Hva om jeg trenger advokat?
         <span class="arrow">+</span>
       </button>
-      <div class="faq-a">Rapporten vil tydelig varsle deg hvis saken din krever juridisk hjelp. Vi kan koble deg med våre advokatpartnere. Husk at du kan ha rett til fri rettshjelp hvis du har lav inntekt – sjekk domstol.no.</div>
+      <div class="faq-a">Rapporten vil tydelig varsle deg hvis saken din krever juridisk hjelp. Husk at du kan ha rett til fri rettshjelp hvis du har lav inntekt – sjekk domstol.no.</div>
     </div>
   </div>
 </section>
@@ -1019,9 +997,9 @@
 <!-- FINAL CTA -->
 <section class="final-cta" id="start">
   <h2>Klar for å få <em>oversikt</em>?</h2>
-  <p>Fyll ut gratis på 5 minutter. Vi anbefaler riktig pakke – du betaler ingenting før du er klar.</p>
-  <a href="https://form.typeform.com/to/mclSh4F4" target="_blank" class="btn-gold">Start gratis vurdering →</a>
-  <div class="cta-trust">Ingen binding &nbsp;•&nbsp; Svar på 5 minutter &nbsp;•&nbsp; Koster ingenting å prøve</div>
+  <p>Fyll ut skjemaet på 5 minutter. Du betaler ingenting før du er klar.</p>
+  <a href="https://form.typeform.com/to/mclSh4F4" target="_blank" class="btn-gold">Start her →</a>
+  <div class="cta-trust">Ingen binding &nbsp;•&nbsp; 5 minutter &nbsp;•&nbsp; 100% fornøyd-garanti</div>
 </section>
 
 <!-- FOOTER -->
@@ -1039,13 +1017,13 @@
         </svg>
         <span class="logo-text">MinArv.no</span>
       </div>
-      <p>Arveoppgjør på 48 timer med AI-hjelp. Trygt, enkelt og billig.</p>
+      <p>Arveoppgjør på 48 timer. Trygt, enkelt og til en pris som faktisk er rimelig.</p>
     </div>
     <div class="footer-links">
       <strong style="color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:4px;">Lenker</strong>
       <a href="#hvordan">Hvordan det fungerer</a>
       <a href="#priser">Priser</a>
-      <a href="#start">Start gratis</a>
+      <a href="#start">Start her</a>
       <a href="https://swamp-sugar-2c7.notion.site/Personvernerkl-ring-for-MinArv-no-2e775421f31180d49a0eddfe06a0a756?pvs=74" target="_blank">Personvernerklæring</a>
       <a href="https://swamp-sugar-2c7.notion.site/Vilk-r-for-bruk-MinArv-no-30e75421f311801f9b2cfb5555b0b6bc?pvs=74" target="_blank">Vilkår for bruk</a>
       <a href="https://www.notion.so/Refusjonspolicy-MinArv-no-32075421f311807889edd5b698813611" target="_blank">Refusjonspolicy</a>
@@ -1053,7 +1031,7 @@
     <div class="footer-contact">
       <strong style="color:rgba(255,255,255,0.7);font-size:0.82rem;display:block;margin-bottom:8px;">Kontakt</strong>
       <span style="color:rgba(255,255,255,0.5)">minarv.kontakt [at] gmail.com</span>
-      <span style="color:rgba(255,255,255,0.4);font-size:0.82rem;margin-top:4px;display:block;">Vi svarer på e-post innen 24 timer</span>
+      <span style="color:rgba(255,255,255,0.4);font-size:0.82rem;margin-top:4px;display:block;">Vi svarer innen 24 timer</span>
     </div>
   </div>
   <div class="footer-bottom">
@@ -1076,5 +1054,5 @@ function toggleFaq(btn) {
   }
 }
 </script>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasyn
+</body>
+</html>
